@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "AIRBNB"."DEV"."CUSTOMERS";
+    -- dbt seed --
+    
+            insert into AIRBNB.DEV.customers (id, first_name, last_name, birthdate, membership_no) values
+            (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+        
+
+;
+  

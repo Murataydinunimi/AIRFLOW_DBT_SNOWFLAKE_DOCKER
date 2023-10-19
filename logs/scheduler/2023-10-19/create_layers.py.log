@@ -1,0 +1,32 @@
+[2023-10-19 19:14:16,785] {processor.py:153} INFO - Started process (PID=50) to work on /opt/airflow/dags/create_layers.py
+[2023-10-19 19:14:16,788] {processor.py:641} INFO - Processing file /opt/airflow/dags/create_layers.py for tasks to queue
+[2023-10-19 19:14:16,790] {logging_mixin.py:115} INFO - [2023-10-19 19:14:16,790] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:14:17,383] {processor.py:651} INFO - DAG(s) dict_keys(['create_layers_in_snowflake']) retrieved from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:14:17,525] {logging_mixin.py:115} INFO - [2023-10-19 19:14:17,525] {manager.py:508} INFO - Created Permission View: can delete on DAG:create_layers_in_snowflake
+[2023-10-19 19:14:17,545] {logging_mixin.py:115} INFO - [2023-10-19 19:14:17,545] {manager.py:508} INFO - Created Permission View: can edit on DAG:create_layers_in_snowflake
+[2023-10-19 19:14:17,560] {logging_mixin.py:115} INFO - [2023-10-19 19:14:17,560] {manager.py:508} INFO - Created Permission View: can read on DAG:create_layers_in_snowflake
+[2023-10-19 19:14:17,562] {logging_mixin.py:115} INFO - [2023-10-19 19:14:17,562] {dag.py:2371} INFO - Sync 1 DAGs
+[2023-10-19 19:14:17,573] {logging_mixin.py:115} INFO - [2023-10-19 19:14:17,573] {dag.py:2390} INFO - Creating ORM DAG for create_layers_in_snowflake
+[2023-10-19 19:14:17,588] {logging_mixin.py:115} INFO - [2023-10-19 19:14:17,588] {dag.py:2919} INFO - Setting next_dagrun for create_layers_in_snowflake to None, run_after=None
+[2023-10-19 19:14:17,616] {processor.py:161} INFO - Processing /opt/airflow/dags/create_layers.py took 0.838 seconds
+[2023-10-19 19:14:47,874] {processor.py:153} INFO - Started process (PID=70) to work on /opt/airflow/dags/create_layers.py
+[2023-10-19 19:14:47,875] {processor.py:641} INFO - Processing file /opt/airflow/dags/create_layers.py for tasks to queue
+[2023-10-19 19:14:47,877] {logging_mixin.py:115} INFO - [2023-10-19 19:14:47,877] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:14:48,089] {processor.py:651} INFO - DAG(s) dict_keys(['create_layers_in_snowflake']) retrieved from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:14:48,139] {logging_mixin.py:115} INFO - [2023-10-19 19:14:48,139] {dag.py:2371} INFO - Sync 1 DAGs
+[2023-10-19 19:14:48,159] {logging_mixin.py:115} INFO - [2023-10-19 19:14:48,159] {dag.py:2919} INFO - Setting next_dagrun for create_layers_in_snowflake to None, run_after=None
+[2023-10-19 19:14:48,179] {processor.py:161} INFO - Processing /opt/airflow/dags/create_layers.py took 0.309 seconds
+[2023-10-19 19:15:18,365] {processor.py:153} INFO - Started process (PID=97) to work on /opt/airflow/dags/create_layers.py
+[2023-10-19 19:15:18,366] {processor.py:641} INFO - Processing file /opt/airflow/dags/create_layers.py for tasks to queue
+[2023-10-19 19:15:18,367] {logging_mixin.py:115} INFO - [2023-10-19 19:15:18,367] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:15:18,545] {processor.py:651} INFO - DAG(s) dict_keys(['create_layers_in_snowflake']) retrieved from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:15:18,598] {logging_mixin.py:115} INFO - [2023-10-19 19:15:18,598] {dag.py:2371} INFO - Sync 1 DAGs
+[2023-10-19 19:15:18,615] {logging_mixin.py:115} INFO - [2023-10-19 19:15:18,615] {dag.py:2919} INFO - Setting next_dagrun for create_layers_in_snowflake to None, run_after=None
+[2023-10-19 19:15:18,633] {processor.py:161} INFO - Processing /opt/airflow/dags/create_layers.py took 0.271 seconds
+[2023-10-19 19:15:48,837] {processor.py:153} INFO - Started process (PID=129) to work on /opt/airflow/dags/create_layers.py
+[2023-10-19 19:15:48,839] {processor.py:641} INFO - Processing file /opt/airflow/dags/create_layers.py for tasks to queue
+[2023-10-19 19:15:48,840] {logging_mixin.py:115} INFO - [2023-10-19 19:15:48,840] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:15:49,083] {processor.py:651} INFO - DAG(s) dict_keys(['create_layers_in_snowflake']) retrieved from /opt/airflow/dags/create_layers.py
+[2023-10-19 19:15:49,143] {logging_mixin.py:115} INFO - [2023-10-19 19:15:49,143] {dag.py:2371} INFO - Sync 1 DAGs
+[2023-10-19 19:15:49,168] {logging_mixin.py:115} INFO - [2023-10-19 19:15:49,168] {dag.py:2919} INFO - Setting next_dagrun for create_layers_in_snowflake to None, run_after=None
+[2023-10-19 19:15:49,196] {processor.py:161} INFO - Processing /opt/airflow/dags/create_layers.py took 0.364 seconds

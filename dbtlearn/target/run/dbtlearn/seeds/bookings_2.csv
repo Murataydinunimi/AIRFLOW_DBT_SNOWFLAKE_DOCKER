@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "AIRBNB"."DEV"."BOOKINGS_2";
+    -- dbt seed --
+    
+            insert into AIRBNB.DEV.bookings_2 (id, booking_reference, hotel, booking_date, cost) values
+            (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+        
+
+;
+  

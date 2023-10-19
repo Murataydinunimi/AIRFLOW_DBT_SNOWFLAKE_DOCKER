@@ -1,0 +1,34 @@
+[2023-10-19 19:15:42,170] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_lineage_graph manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:42,180] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_lineage_graph manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:42,181] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:42,184] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-10-19 19:15:42,184] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:42,200] {taskinstance.py:1377} INFO - Executing <Task(DockerOperator): create_lineage_graph> on 2023-10-19 19:14:56.831519+00:00
+[2023-10-19 19:15:42,205] {standard_task_runner.py:52} INFO - Started process 143 to run task
+[2023-10-19 19:15:42,208] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'create_layers_in_snowflake', 'create_lineage_graph', 'manual__2023-10-19T19:14:56.831519+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/create_layers.py', '--cfg-path', '/tmp/tmpwemkl1u5', '--error-file', '/tmp/tmpsk5jp13z']
+[2023-10-19 19:15:42,208] {standard_task_runner.py:80} INFO - Job 7: Subtask create_lineage_graph
+[2023-10-19 19:15:42,264] {task_command.py:369} INFO - Running <TaskInstance: create_layers_in_snowflake.create_lineage_graph manual__2023-10-19T19:14:56.831519+00:00 [running]> on host 330f19248a97
+[2023-10-19 19:15:42,339] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=create_layers_in_snowflake
+AIRFLOW_CTX_TASK_ID=create_lineage_graph
+AIRFLOW_CTX_EXECUTION_DATE=2023-10-19T19:14:56.831519+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-10-19T19:14:56.831519+00:00
+[2023-10-19 19:15:42,370] {docker.py:247} INFO - Starting docker container from image custom_dbt_image
+[2023-10-19 19:15:44,572] {docker.py:308} INFO - [0m19:15:44  Running with dbt=1.5.0
+[2023-10-19 19:15:45,499] {docker.py:308} INFO - [0m19:15:45  Found 9 models, 0 tests, 0 snapshots, 0 analyses, 321 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
+[2023-10-19 19:15:45,502] {docker.py:308} INFO - [0m19:15:45
+[2023-10-19 19:15:47,103] {docker.py:308} INFO - [0m19:15:47  Concurrency: 1 threads (target='dev')
+[2023-10-19 19:15:47,104] {docker.py:308} INFO - [0m19:15:47
+[2023-10-19 19:15:47,989] {docker.py:308} INFO - [0m19:15:47  Building catalog
+[2023-10-19 19:15:50,085] {docker.py:308} INFO - [0m19:15:50  Catalog written to /dbtlearn/target/catalog.json
+[2023-10-19 19:15:52,485] {docker.py:308} INFO - [0m19:15:52  Running with dbt=1.5.0
+[2023-10-19 19:15:53,728] {docker.py:308} INFO - Serving docs at 8085
+To access from your browser, navigate to: http://localhost:8085
+
+
+
+Press Ctrl+C to exit.

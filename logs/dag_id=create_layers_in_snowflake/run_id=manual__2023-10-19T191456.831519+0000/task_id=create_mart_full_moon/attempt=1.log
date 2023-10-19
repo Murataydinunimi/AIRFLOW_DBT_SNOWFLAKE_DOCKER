@@ -1,0 +1,36 @@
+[2023-10-19 19:15:33,891] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_mart_full_moon manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:33,904] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_mart_full_moon manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:33,905] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:33,906] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-10-19 19:15:33,907] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:33,924] {taskinstance.py:1377} INFO - Executing <Task(DockerOperator): create_mart_full_moon> on 2023-10-19 19:14:56.831519+00:00
+[2023-10-19 19:15:33,929] {standard_task_runner.py:52} INFO - Started process 131 to run task
+[2023-10-19 19:15:33,933] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'create_layers_in_snowflake', 'create_mart_full_moon', 'manual__2023-10-19T19:14:56.831519+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/create_layers.py', '--cfg-path', '/tmp/tmpj9mtx_pt', '--error-file', '/tmp/tmptteql_bs']
+[2023-10-19 19:15:33,934] {standard_task_runner.py:80} INFO - Job 5: Subtask create_mart_full_moon
+[2023-10-19 19:15:34,003] {task_command.py:369} INFO - Running <TaskInstance: create_layers_in_snowflake.create_mart_full_moon manual__2023-10-19T19:14:56.831519+00:00 [running]> on host 330f19248a97
+[2023-10-19 19:15:34,082] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=create_layers_in_snowflake
+AIRFLOW_CTX_TASK_ID=create_mart_full_moon
+AIRFLOW_CTX_EXECUTION_DATE=2023-10-19T19:14:56.831519+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-10-19T19:14:56.831519+00:00
+[2023-10-19 19:15:34,112] {docker.py:247} INFO - Starting docker container from image custom_dbt_image
+[2023-10-19 19:15:36,408] {docker.py:308} INFO - [0m19:15:36  Running with dbt=1.5.0
+[2023-10-19 19:15:37,534] {docker.py:308} INFO - [0m19:15:37  Found 9 models, 0 tests, 0 snapshots, 0 analyses, 321 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
+[2023-10-19 19:15:37,537] {docker.py:308} INFO - [0m19:15:37
+[2023-10-19 19:15:38,830] {docker.py:308} INFO - [0m19:15:38  Concurrency: 1 threads (target='dev')
+[2023-10-19 19:15:38,831] {docker.py:308} INFO - [0m19:15:38
+[2023-10-19 19:15:38,837] {docker.py:308} INFO - [0m19:15:38  1 of 1 START sql table model DEV.mart_full_moon_reviews ........................ [RUN]
+[2023-10-19 19:15:40,412] {docker.py:308} INFO - [0m19:15:40  1 of 1 OK created sql table model DEV.mart_full_moon_reviews ................... [[32mSUCCESS 1[0m in 1.57s]
+[2023-10-19 19:15:40,445] {docker.py:308} INFO - [0m19:15:40
+[2023-10-19 19:15:40,447] {docker.py:308} INFO - [0m19:15:40  Finished running 1 table model in 0 hours 0 minutes and 2.91 seconds (2.91s).
+[2023-10-19 19:15:40,492] {docker.py:308} INFO - [0m19:15:40
+[2023-10-19 19:15:40,493] {docker.py:308} INFO - [0m19:15:40  [32mCompleted successfully[0m
+[2023-10-19 19:15:40,494] {docker.py:308} INFO - [0m19:15:40
+[2023-10-19 19:15:40,495] {docker.py:308} INFO - [0m19:15:40  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2023-10-19 19:15:41,338] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=create_layers_in_snowflake, task_id=create_mart_full_moon, execution_date=20231019T191456, start_date=20231019T191533, end_date=20231019T191541
+[2023-10-19 19:15:41,362] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-10-19 19:15:41,407] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

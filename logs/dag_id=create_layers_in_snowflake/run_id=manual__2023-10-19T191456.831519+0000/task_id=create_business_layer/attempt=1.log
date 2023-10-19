@@ -1,0 +1,42 @@
+[2023-10-19 19:15:20,741] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_business_layer manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:20,751] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_business_layer manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:20,752] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:20,755] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-10-19 19:15:20,755] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:20,769] {taskinstance.py:1377} INFO - Executing <Task(DockerOperator): create_business_layer> on 2023-10-19 19:14:56.831519+00:00
+[2023-10-19 19:15:20,774] {standard_task_runner.py:52} INFO - Started process 119 to run task
+[2023-10-19 19:15:20,776] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'create_layers_in_snowflake', 'create_business_layer', 'manual__2023-10-19T19:14:56.831519+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/create_layers.py', '--cfg-path', '/tmp/tmp8tna2xkz', '--error-file', '/tmp/tmp9_u2juap']
+[2023-10-19 19:15:20,777] {standard_task_runner.py:80} INFO - Job 4: Subtask create_business_layer
+[2023-10-19 19:15:20,835] {task_command.py:369} INFO - Running <TaskInstance: create_layers_in_snowflake.create_business_layer manual__2023-10-19T19:14:56.831519+00:00 [running]> on host 330f19248a97
+[2023-10-19 19:15:20,931] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=create_layers_in_snowflake
+AIRFLOW_CTX_TASK_ID=create_business_layer
+AIRFLOW_CTX_EXECUTION_DATE=2023-10-19T19:14:56.831519+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-10-19T19:14:56.831519+00:00
+[2023-10-19 19:15:20,960] {docker.py:247} INFO - Starting docker container from image custom_dbt_image
+[2023-10-19 19:15:23,225] {docker.py:308} INFO - [0m19:15:23  Running with dbt=1.5.0
+[2023-10-19 19:15:24,012] {docker.py:308} INFO - [0m19:15:24  Found 9 models, 0 tests, 0 snapshots, 0 analyses, 321 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
+[2023-10-19 19:15:24,015] {docker.py:308} INFO - [0m19:15:24
+[2023-10-19 19:15:25,296] {docker.py:308} INFO - [0m19:15:25  Concurrency: 1 threads (target='dev')
+[2023-10-19 19:15:25,296] {docker.py:308} INFO - [0m19:15:25
+[2023-10-19 19:15:25,302] {docker.py:308} INFO - [0m19:15:25  1 of 4 START sql incremental model DEV.bl_ft_reviews ........................... [RUN]
+[2023-10-19 19:15:27,373] {docker.py:308} INFO - [0m19:15:27  1 of 4 OK created sql incremental model DEV.bl_ft_reviews ...................... [[32mSUCCESS 1[0m in 2.07s]
+[2023-10-19 19:15:27,376] {docker.py:308} INFO - [0m19:15:27  2 of 4 START sql table model DEV.bl_hosts_cleansed ............................. [RUN]
+[2023-10-19 19:15:28,951] {docker.py:308} INFO - [0m19:15:28  2 of 4 OK created sql table model DEV.bl_hosts_cleansed ........................ [[32mSUCCESS 1[0m in 1.57s]
+[2023-10-19 19:15:28,962] {docker.py:308} INFO - [0m19:15:28  3 of 4 START sql table model DEV.bl_listings_cleansed .......................... [RUN]
+[2023-10-19 19:15:30,768] {docker.py:308} INFO - [0m19:15:30  3 of 4 OK created sql table model DEV.bl_listings_cleansed ..................... [[32mSUCCESS 1[0m in 1.80s]
+[2023-10-19 19:15:30,776] {docker.py:308} INFO - [0m19:15:30  4 of 4 START sql table model DEV.bl_listings_w_hosts ........................... [RUN]
+[2023-10-19 19:15:32,306] {docker.py:308} INFO - [0m19:15:32  4 of 4 OK created sql table model DEV.bl_listings_w_hosts ...................... [[32mSUCCESS 1[0m in 1.53s]
+[2023-10-19 19:15:32,348] {docker.py:308} INFO - [0m19:15:32
+[2023-10-19 19:15:32,349] {docker.py:308} INFO - [0m19:15:32  Finished running 1 incremental model, 3 table models in 0 hours 0 minutes and 8.33 seconds (8.33s).
+[2023-10-19 19:15:32,396] {docker.py:308} INFO - [0m19:15:32
+[2023-10-19 19:15:32,397] {docker.py:308} INFO - [0m19:15:32  [32mCompleted successfully[0m
+[2023-10-19 19:15:32,398] {docker.py:308} INFO - [0m19:15:32
+[2023-10-19 19:15:32,400] {docker.py:308} INFO - [0m19:15:32  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[2023-10-19 19:15:33,230] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=create_layers_in_snowflake, task_id=create_business_layer, execution_date=20231019T191456, start_date=20231019T191520, end_date=20231019T191533
+[2023-10-19 19:15:33,293] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-10-19 19:15:33,351] {local_task_job.py:273} INFO - 2 downstream tasks scheduled from follow-on schedule check

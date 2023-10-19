@@ -1,0 +1,36 @@
+[2023-10-19 19:15:33,933] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_mart_review_score manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:33,945] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: create_layers_in_snowflake.create_mart_review_score manual__2023-10-19T19:14:56.831519+00:00 [queued]>
+[2023-10-19 19:15:33,946] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:33,947] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-10-19 19:15:33,948] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-10-19 19:15:33,966] {taskinstance.py:1377} INFO - Executing <Task(DockerOperator): create_mart_review_score> on 2023-10-19 19:14:56.831519+00:00
+[2023-10-19 19:15:33,970] {standard_task_runner.py:52} INFO - Started process 132 to run task
+[2023-10-19 19:15:33,974] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'create_layers_in_snowflake', 'create_mart_review_score', 'manual__2023-10-19T19:14:56.831519+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/create_layers.py', '--cfg-path', '/tmp/tmpwlbds88m', '--error-file', '/tmp/tmpo8ysqmls']
+[2023-10-19 19:15:33,975] {standard_task_runner.py:80} INFO - Job 6: Subtask create_mart_review_score
+[2023-10-19 19:15:34,039] {task_command.py:369} INFO - Running <TaskInstance: create_layers_in_snowflake.create_mart_review_score manual__2023-10-19T19:14:56.831519+00:00 [running]> on host 330f19248a97
+[2023-10-19 19:15:34,138] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=create_layers_in_snowflake
+AIRFLOW_CTX_TASK_ID=create_mart_review_score
+AIRFLOW_CTX_EXECUTION_DATE=2023-10-19T19:14:56.831519+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-10-19T19:14:56.831519+00:00
+[2023-10-19 19:15:34,175] {docker.py:247} INFO - Starting docker container from image custom_dbt_image
+[2023-10-19 19:15:36,390] {docker.py:308} INFO - [0m19:15:36  Running with dbt=1.5.0
+[2023-10-19 19:15:37,475] {docker.py:308} INFO - [0m19:15:37  Found 9 models, 0 tests, 0 snapshots, 0 analyses, 321 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
+[2023-10-19 19:15:37,479] {docker.py:308} INFO - [0m19:15:37
+[2023-10-19 19:15:38,800] {docker.py:308} INFO - [0m19:15:38  Concurrency: 1 threads (target='dev')
+[2023-10-19 19:15:38,802] {docker.py:308} INFO - [0m19:15:38
+[2023-10-19 19:15:38,813] {docker.py:308} INFO - [0m19:15:38  1 of 1 START sql table model DEV.mart_review_score_total_stay .................. [RUN]
+[2023-10-19 19:15:40,414] {docker.py:308} INFO - [0m19:15:40  1 of 1 OK created sql table model DEV.mart_review_score_total_stay ............. [[32mSUCCESS 1[0m in 1.59s]
+[2023-10-19 19:15:40,426] {docker.py:308} INFO - [0m19:15:40
+[2023-10-19 19:15:40,427] {docker.py:308} INFO - [0m19:15:40  Finished running 1 table model in 0 hours 0 minutes and 2.95 seconds (2.95s).
+[2023-10-19 19:15:40,486] {docker.py:308} INFO - [0m19:15:40
+[2023-10-19 19:15:40,487] {docker.py:308} INFO - [0m19:15:40  [32mCompleted successfully[0m
+[2023-10-19 19:15:40,488] {docker.py:308} INFO - [0m19:15:40
+[2023-10-19 19:15:40,489] {docker.py:308} INFO - [0m19:15:40  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2023-10-19 19:15:41,323] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=create_layers_in_snowflake, task_id=create_mart_review_score, execution_date=20231019T191456, start_date=20231019T191533, end_date=20231019T191541
+[2023-10-19 19:15:41,360] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-10-19 19:15:41,392] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

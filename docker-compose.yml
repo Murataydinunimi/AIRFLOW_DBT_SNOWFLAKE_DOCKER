@@ -1,0 +1,163 @@
+version: '3'
+x-airflow-common:
+  &airflow-common
+  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.3.0}
+  environment:
+    &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
+
+  volumes:
+    - ./docker/dags:/opt/airflow/dags
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./dbtlearn:/dbtlearn
+
+  user: "${AIRFLOW_UID:-50000}:0"
+  depends_on:
+    &airflow-common-depends-on
+    redis:
+      condition: service_healthy
+    postgres:
+      condition: service_healthy
+
+
+services:
+    redis:
+      image: redis:latest
+      expose:
+        - 6379
+      healthcheck:
+        test: ["CMD", "redis-cli", "ping"]
+        interval: 5s
+        timeout: 30s
+        retries: 50
+      restart: always
+
+    postgres:
+      image: postgres:13
+      healthcheck:
+        test: ["CMD", "pg_isready", "-U", "airflow"]
+        interval: 5s
+        retries: 5
+      environment:
+        - POSTGRES_USER=airflow
+        - POSTGRES_PASSWORD=airflow
+        - POSTGRES_DB=airflow
+      restart: always
+    
+
+
+    airflow-webserver:
+      <<: *airflow-common
+      command: webserver
+      ports:
+        - 8080:8080
+      healthcheck:
+        test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+      restart: always
+      depends_on:
+        <<: *airflow-common-depends-on
+        airflow-init:
+          condition: service_completed_successfully
+
+    airflow-flower:
+        <<: *airflow-common
+        command : celery flower
+        ports:
+          - 5555:5555
+        healthcheck:
+          test: ["CMD", "curl", "--fail", "http://localhost:5555/"]
+          interval: 10s
+          timeout: 10s
+          retries: 5
+        restart: always
+        depends_on:
+          <<: *airflow-common-depends-on
+          airflow-init:
+            condition: service_completed_successfully        
+
+    airflow-scheduler:
+      <<: *airflow-common
+      command: scheduler
+      healthcheck:
+        test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
+        interval: 10s
+        timeout: 10s
+        retries: 5
+      restart: always
+      depends_on:
+        <<: *airflow-common-depends-on           
+        airflow-init:
+          condition: service_completed_successfully
+
+    airflow-worker:
+      <<: *airflow-common
+      command: celery worker
+      healthcheck:
+        test:
+          - "CMD-SHELL"
+          - 'celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}"'
+        interval: 10s
+        timeout: 10s
+        retries: 5 
+      restart: always
+      environment:
+        <<: *airflow-common-env
+        DUMB_INIT_SETSID: "0"
+      depends_on:
+        <<: *airflow-common-depends-on
+        airflow-init:
+          condition: service_completed_successfully
+
+    airflow-init:
+      <<: *airflow-common
+      entrypoint: /bin/bash
+      command: 
+        - -c
+        - |
+          mkdir -p /sources/logs /sources/dags /sources/plugins
+          chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
+          exec /entrypoint airflow version
+      environment:
+        <<: *airflow-common-env
+        _AIRFLOW_DB_UPGRADE: 'true'
+        _AIRFLOW_WWW_USER_CREATE: 'true'
+        _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+        _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+      user: "0:0"
+      volumes:
+        - .:/sources
+
+    dbt:
+      image: custom_dbt_image
+      container_name: dbt
+      build: ./docker/dbt/
+      command: 
+        - bash 
+        - -c 
+        - |
+          echo "Launching dbt"
+          #
+          sleep infinity
+      restart: unless-stopped
+      volumes:
+        - ./dbtlearn:/dbtlearn
+      ports:
+        - "8085:8085"
+      environment:
+        - TZ=Etc/GMT
+        
+ 
