@@ -1,9 +1,9 @@
 dbtlearn:
   outputs:
     dev:
-      account: spqcojz-jp71431
-      database: AIRBNB
-      password: dbtPassword123
+      account: 'your-account'
+      database: 'your-db'
+      password: 'your-password'
       role: transform
       schema: DEV
       threads: 1
