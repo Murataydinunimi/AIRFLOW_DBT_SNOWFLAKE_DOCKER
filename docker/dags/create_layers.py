@@ -12,7 +12,7 @@ run_dbt_task = DockerOperator(
     api_version='auto',
     docker_url='unix://var/run/docker.sock', 
     command='sh -c "cd /dbtlearn && dbt seed --project-dir /dbtlearn"',
-    mounts=[Mount(source='/mnt/c/Users/murat.aydin/Desktop/airflow_and_dbt_project/dbtlearn',target='/dbtlearn',type='bind')],
+    mounts=[Mount(source='<your_path_to_the_repo>/AIRFLOW_DBT_SNOWFLAKE_DOCKER/dbtlearn',target='/dbtlearn',type='bind')],
     network_mode='container:dbt',  
     dag=dag
 )
@@ -24,7 +24,7 @@ run_dbt_task_1 = DockerOperator(
     api_version='auto',
     docker_url='unix://var/run/docker.sock', 
     command='sh -c "cd /dbtlearn && dbt run --models target_layer.* --project-dir /dbtlearn"',
-    mounts=[Mount(source='/mnt/c/Users/murat.aydin/Desktop/airflow_and_dbt_project/dbtlearn',target='/dbtlearn',type='bind')],
+    mounts=[Mount(source='<your_path_to_the_repo>/AIRFLOW_DBT_SNOWFLAKE_DOCKER/dbtlearn',target='/dbtlearn',type='bind')],
     network_mode='container:dbt',  
     dag=dag
 )
@@ -36,7 +36,7 @@ run_dbt_task_2 = DockerOperator(
     api_version='auto',
     docker_url='unix://var/run/docker.sock', 
     command='sh -c "cd /dbtlearn && dbt run --models business_layer.* --project-dir /dbtlearn"',
-    mounts=[Mount(source='/mnt/c/Users/murat.aydin/Desktop/airflow_and_dbt_project/dbtlearn',target='/dbtlearn',type='bind')],
+    mounts=[Mount(source='<your_path_to_the_repo>/AIRFLOW_DBT_SNOWFLAKE_DOCKER/dbtlearn',target='/dbtlearn',type='bind')],
     network_mode='container:dbt',  
     dag=dag
 )
@@ -47,7 +47,7 @@ run_dbt_task_3 = DockerOperator(
     api_version='auto',
     docker_url='unix://var/run/docker.sock', 
     command='sh -c "cd /dbtlearn && dbt run --models mart_full_moon_reviews.* --project-dir /dbtlearn"',
-    mounts=[Mount(source='/mnt/c/Users/murat.aydin/Desktop/airflow_and_dbt_project/dbtlearn',target='/dbtlearn',type='bind')],
+    mounts=[Mount(source='<your_path_to_the_repo>/AIRFLOW_DBT_SNOWFLAKE_DOCKER/dbtlearn',target='/dbtlearn',type='bind')],
     network_mode='container:dbt',  
     dag=dag
 )
@@ -58,7 +58,7 @@ run_dbt_task_4 = DockerOperator(
     api_version='auto',
     docker_url='unix://var/run/docker.sock', 
     command='sh -c "cd /dbtlearn && dbt run --models mart_review_score.* --project-dir /dbtlearn"',
-    mounts=[Mount(source='/mnt/c/Users/murat.aydin/Desktop/airflow_and_dbt_project/dbtlearn',target='/dbtlearn',type='bind')],
+    mounts=[Mount(source='<your_path_to_the_repo>/AIRFLOW_DBT_SNOWFLAKE_DOCKER/dbtlearnn',target='/dbtlearn',type='bind')],
     network_mode='container:dbt',  
     dag=dag
 )
@@ -69,7 +69,7 @@ run_dbt_task_5 = DockerOperator(
     api_version='auto',
     docker_url='unix://var/run/docker.sock', 
     command='sh -c "cd /dbtlearn && dbt docs generate && dbt docs serve --port 8085"',
-    mounts=[Mount(source='/mnt/c/Users/murat.aydin/Desktop/airflow_and_dbt_project/dbtlearn',target='/dbtlearn',type='bind')],
+    mounts=[Mount(source='<your_path_to_the_repo>/AIRFLOW_DBT_SNOWFLAKE_DOCKER/dbtlearn',target='/dbtlearn',type='bind')],
     network_mode='container:dbt',  
     dag=dag
 )
